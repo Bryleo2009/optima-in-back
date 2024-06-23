@@ -53,5 +53,17 @@ public class Cliente extends Auditable<String> {
     @Column(nullable = false, columnDefinition = "TINYINT(1) default 1")
     private boolean estado;
 
-
+    public Cliente(String nombresCli, String apellidosCli, TipoDoc tipoDoc, String numDoc, TipoSexo tipoSexo, TipoEstadoCivil tipoEstadoCivil, String direccionCli, String telefonoCli, String emailCli, Date fechaNacCli) {
+    this.nombresCli = nombresCli;
+    this.apellidosCli = apellidosCli;
+    this.tipoDoc = tipoDoc;
+    this.numDoc = numDoc;
+    this.tipoSexo = tipoSexo;
+    this.tipoEstadoCivil = tipoEstadoCivil;
+    this.direccionCli = direccionCli;
+    this.telefonoCli = telefonoCli;
+    this.emailCli = emailCli;
+    this.fechaNacCli = fechaNacCli;
+    this.estado = true; // Assuming a new client is always active
+}
 }

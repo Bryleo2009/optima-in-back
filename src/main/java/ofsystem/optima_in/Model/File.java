@@ -7,13 +7,14 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ofsystem.optima_in.Config.Auditable;
 
 @Entity
 @Table(name = "voucher")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class File {
+public class File extends Auditable<String> {
     @Id
     private String id;
 
