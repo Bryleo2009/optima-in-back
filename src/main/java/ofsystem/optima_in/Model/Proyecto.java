@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ofsystem.optima_in.Config.Auditable;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Proyecto {
+public class Proyecto extends Auditable<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -37,7 +38,13 @@ public class Proyecto {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaFin;
 
-    @OneToMany
-    private List<Credito> creditos = new ArrayList<>();
+
+    public Proyecto(int id, String nombreProyecto, String descripcionProyecto, TipoEstadoProyecto estadoProyecto, Date fechaInicio) {
+        this.id = id;
+        this.nombreProyecto = nombreProyecto;
+        this.descripcionProyecto = descripcionProyecto;
+        this.estadoProyecto = estadoProyecto;
+        this.fechaInicio = fechaInicio;
+    }
 
 }
